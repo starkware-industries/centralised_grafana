@@ -1,0 +1,674 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 18,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "dfboQiT4k"
+      },
+      "description": "TX Time Spent In System in hours",
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 12,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "hiddenSeries": false,
+      "id": 2,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [
+        {
+          "targetBlank": true,
+          "title": "brine",
+          "url": "https://grafana.brine.starkex.co/d/57184f725c922d940ec16ac771bafed5f0bd641e/starkex-pipeline-brine-production"
+        },
+        {
+          "targetBlank": true,
+          "title": "dydx",
+          "url": "https://grafana.dydx.starkex.co/d/8f08838ebaa12e3ab7bbccb0d7e6a13506f374e9/perpetual-pipeline-dydx-production?orgId=1&refresh=10s"
+        },
+        {
+          "targetBlank": true,
+          "title": "myria",
+          "url": "https://grafana.myria.starkex.co/d/d3fbc273dc5f98c42734de332e9c7639b457aa7f/starkex-pipeline-myria-production?orgId=1&refresh=10s"
+        },
+        {
+          "targetBlank": true,
+          "title": "reddio",
+          "url": "https://grafana.reddio.starkex.co/d/4010285525b54ebddc9281fa3a549d996e0303dc/starkex-pipeline-reddio-production?orgId=1&refresh=10s"
+        },
+        {
+          "targetBlank": true,
+          "title": "canvas",
+          "url": "https://grafana.canvas.starkex.co/d/bb01ef17be24d4874f3e27ae878aa37993a98532/starkex-pipeline-canvas-starkex-production?orgId=1&editPanel=83&refresh=10s"
+        },
+        {
+          "targetBlank": true,
+          "title": "davion",
+          "url": "https://grafana.davion.starkex.co/d/07dad20e9a6c88e3cb93616380dd37c7ffddf2b2/perpetual-dashboard-davion-production?orgId=1&refresh=10s"
+        },
+        {
+          "targetBlank": true,
+          "title": "gammax",
+          "url": "https://grafana.gammax.starkex.co/d/9144cb57f446029c2ed2cea5165a6f29f5cdd3e4/perpetual-dashboard-gammax-production?orgId=1&refresh=10s"
+        },
+        {
+          "title": "starknet",
+          "url": "https://grafana.starknet-production.starkex.co/d/b97a1eabc44d31d87e5910bb1d11b757628f2fa2/starknet-dashboard-starknet-mainnet?orgId=1&refresh=10s"
+        }
+      ],
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.5.5",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "dfboQiT4k"
+          },
+          "editorMode": "code",
+          "expr": "max by (kubernetes_namespace) (starkware_time_of_tx_spent_in_system) /3600",
+          "legendFormat": "{{kubernetes_namespace}}",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "dfboQiT4k"
+          },
+          "editorMode": "code",
+          "expr": "max(starkware_time_of_tx_spent_in_system{kubernetes_namespace=\"brine-production\"}) / 3600",
+          "hide": true,
+          "legendFormat": "Brine- Time spent in system",
+          "range": true,
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "dfboQiT4k"
+          },
+          "editorMode": "code",
+          "expr": "max(starkware_time_of_tx_spent_in_system{kubernetes_namespace=\"davion-production\"}) / 3600",
+          "hide": true,
+          "legendFormat": "Davion- Time spent in system",
+          "range": true,
+          "refId": "C"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "dfboQiT4k"
+          },
+          "editorMode": "code",
+          "expr": "max(starkware_time_of_tx_spent_in_system{kubernetes_namespace=\"canvas-starkex-production\"}) / 3600",
+          "hide": true,
+          "legendFormat": "canvas- Time spent in system",
+          "range": true,
+          "refId": "D"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "dfboQiT4k"
+          },
+          "editorMode": "code",
+          "expr": "max(starkware_time_of_tx_spent_in_system{kubernetes_namespace=\"gammax-production\"}) / 3600",
+          "hide": true,
+          "legendFormat": "gammax- Time spent in system",
+          "range": true,
+          "refId": "E"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "dfboQiT4k"
+          },
+          "editorMode": "code",
+          "expr": "max(starkware_time_of_tx_spent_in_system{kubernetes_namespace=\"myria-production\"}) / 3600",
+          "hide": true,
+          "legendFormat": "myria- Time spent in system",
+          "range": true,
+          "refId": "F"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "dfboQiT4k"
+          },
+          "editorMode": "code",
+          "expr": "max(starkware_time_of_tx_spent_in_system{kubernetes_namespace=\"reddio-production\"}) / 3600",
+          "hide": true,
+          "legendFormat": "reddio - Time spent in system",
+          "range": true,
+          "refId": "G"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "dfboQiT4k"
+          },
+          "editorMode": "code",
+          "expr": "max(starkware_time_of_tx_spent_in_system{kubernetes_namespace=\"starknet-mainnet-production\"}) / 3600",
+          "hide": true,
+          "legendFormat": "Starknet - Time spent in system",
+          "range": true,
+          "refId": "H"
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "TX Time Spent In System",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:190",
+          "decimals": 0,
+          "format": "short",
+          "logBase": 1,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:191",
+          "format": "short",
+          "logBase": 1,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "dfboQiT4k"
+      },
+      "description": "Transactions per second for 30 minutes",
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 10,
+        "w": 12,
+        "x": 0,
+        "y": 12
+      },
+      "hiddenSeries": false,
+      "id": 7,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [
+        {
+          "targetBlank": true,
+          "title": "brine",
+          "url": "https://grafana.brine.starkex.co/d/57184f725c922d940ec16ac771bafed5f0bd641e/starkex-pipeline-brine-production"
+        },
+        {
+          "targetBlank": true,
+          "title": "dydx",
+          "url": "https://grafana.dydx.starkex.co/d/8f08838ebaa12e3ab7bbccb0d7e6a13506f374e9/perpetual-pipeline-dydx-production?orgId=1&refresh=10s"
+        },
+        {
+          "targetBlank": true,
+          "title": "myria",
+          "url": "https://grafana.myria.starkex.co/d/d3fbc273dc5f98c42734de332e9c7639b457aa7f/starkex-pipeline-myria-production?orgId=1&refresh=10s"
+        },
+        {
+          "targetBlank": true,
+          "title": "reddio",
+          "url": "https://grafana.reddio.starkex.co/d/4010285525b54ebddc9281fa3a549d996e0303dc/starkex-pipeline-reddio-production?orgId=1&refresh=10s"
+        },
+        {
+          "targetBlank": true,
+          "title": "canvas",
+          "url": "https://grafana.canvas.starkex.co/d/bb01ef17be24d4874f3e27ae878aa37993a98532/starkex-pipeline-canvas-starkex-production?orgId=1&editPanel=83&refresh=10s"
+        },
+        {
+          "targetBlank": true,
+          "title": "davion",
+          "url": "https://grafana.davion.starkex.co/d/07dad20e9a6c88e3cb93616380dd37c7ffddf2b2/perpetual-dashboard-davion-production?orgId=1&refresh=10s"
+        },
+        {
+          "targetBlank": true,
+          "title": "gammax",
+          "url": "https://grafana.gammax.starkex.co/d/9144cb57f446029c2ed2cea5165a6f29f5cdd3e4/perpetual-dashboard-gammax-production?orgId=1&refresh=10s"
+        },
+        {
+          "title": "starknet",
+          "url": "https://grafana.starknet-production.starkex.co/d/b97a1eabc44d31d87e5910bb1d11b757628f2fa2/starknet-dashboard-starknet-mainnet?orgId=1&refresh=10s"
+        }
+      ],
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.5.5",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "dfboQiT4k"
+          },
+          "editorMode": "code",
+          "expr": "max by (kubernetes_namespace) (rate(starkware_max_received_tx{app=\"gateway\"}[30m]))",
+          "hide": false,
+          "legendFormat": "{{kubernetes_namespace}}",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "Transaction per second",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:190",
+          "decimals": 0,
+          "format": "short",
+          "logBase": 1,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:191",
+          "format": "short",
+          "logBase": 1,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "dfboQiT4k"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 12,
+        "x": 12,
+        "y": 12
+      },
+      "id": 6,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "dfboQiT4k"
+          },
+          "editorMode": "code",
+          "expr": "max by (kubernetes_namespace) (starkware_max_received_tx) - max by (kubernetes_namespace) (starkware_onchain_tx_offset) + 1 ",
+          "legendFormat": "{{kubernetes_namespace}}",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Transactions Processing",
+      "type": "timeseries"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "dfboQiT4k"
+      },
+      "description": "Provers",
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 10,
+        "w": 12,
+        "x": 0,
+        "y": 22
+      },
+      "hiddenSeries": false,
+      "id": 8,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [
+        {
+          "targetBlank": true,
+          "title": "brine",
+          "url": "https://grafana.brine.starkex.co/d/57184f725c922d940ec16ac771bafed5f0bd641e/starkex-pipeline-brine-production"
+        },
+        {
+          "targetBlank": true,
+          "title": "dydx",
+          "url": "https://grafana.dydx.starkex.co/d/8f08838ebaa12e3ab7bbccb0d7e6a13506f374e9/perpetual-pipeline-dydx-production?orgId=1&refresh=10s"
+        },
+        {
+          "targetBlank": true,
+          "title": "myria",
+          "url": "https://grafana.myria.starkex.co/d/d3fbc273dc5f98c42734de332e9c7639b457aa7f/starkex-pipeline-myria-production?orgId=1&refresh=10s"
+        },
+        {
+          "targetBlank": true,
+          "title": "reddio",
+          "url": "https://grafana.reddio.starkex.co/d/4010285525b54ebddc9281fa3a549d996e0303dc/starkex-pipeline-reddio-production?orgId=1&refresh=10s"
+        },
+        {
+          "targetBlank": true,
+          "title": "canvas",
+          "url": "https://grafana.canvas.starkex.co/d/bb01ef17be24d4874f3e27ae878aa37993a98532/starkex-pipeline-canvas-starkex-production?orgId=1&editPanel=83&refresh=10s"
+        },
+        {
+          "targetBlank": true,
+          "title": "davion",
+          "url": "https://grafana.davion.starkex.co/d/07dad20e9a6c88e3cb93616380dd37c7ffddf2b2/perpetual-dashboard-davion-production?orgId=1&refresh=10s"
+        },
+        {
+          "targetBlank": true,
+          "title": "gammax",
+          "url": "https://grafana.gammax.starkex.co/d/9144cb57f446029c2ed2cea5165a6f29f5cdd3e4/perpetual-dashboard-gammax-production?orgId=1&refresh=10s"
+        },
+        {
+          "title": "starknet",
+          "url": "https://grafana.starknet-production.starkex.co/d/b97a1eabc44d31d87e5910bb1d11b757628f2fa2/starknet-dashboard-starknet-mainnet?orgId=1&refresh=10s"
+        }
+      ],
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.5.5",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "dfboQiT4k"
+          },
+          "editorMode": "code",
+          "expr": "count(starkware_request_in_progress{app=\"prover\", kubernetes_namespace=\"sharp-production-v3\", funcname=\"proof_request\"}) or vector(0)",
+          "hide": false,
+          "legendFormat": "Sharp running provers",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "dfboQiT4k"
+          },
+          "editorMode": "code",
+          "expr": "sum(starkware_request_in_progress{app=\"prover\", kubernetes_namespace=\"dydx-production\", funcname=\"proof_request\"}) or vector(0)",
+          "hide": false,
+          "legendFormat": "dydx running provers",
+          "range": true,
+          "refId": "B"
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "Provers",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:190",
+          "decimals": 0,
+          "format": "short",
+          "logBase": 1,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:191",
+          "format": "short",
+          "logBase": 1,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "dfboQiT4k"
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 12,
+        "x": 12,
+        "y": 22
+      },
+      "id": 4,
+      "links": [
+        {
+          "targetBlank": true,
+          "title": "dydx - Alerts",
+          "url": "https://grafana.dydx.starkex.co/d/8f08838ebaa12e3ab7bbccb0d7e6a13506f374e9/perpetual-pipeline-dydx-production?orgId=1&refresh=10s&viewPanel=1"
+        },
+        {
+          "targetBlank": true,
+          "title": "sharp",
+          "url": "https://grafana.production.gcp.starkex.co/d/cedf5ce78a3517023190038f670edb9bc80d7e94/gps-dashboard-sharp-production-v3?orgId=1&refresh=10s&viewPanel=1"
+        }
+      ],
+      "options": {
+        "alertName": "",
+        "dashboardAlerts": false,
+        "dashboardTitle": "",
+        "maxItems": 50,
+        "showOptions": "current",
+        "sortOrder": 3,
+        "stateFilter": {
+          "alerting": false,
+          "execution_error": false,
+          "no_data": false,
+          "ok": false,
+          "paused": false,
+          "pending": false
+        },
+        "tags": []
+      },
+      "pluginVersion": "8.5.5",
+      "title": "Alerts",
+      "type": "alertlist"
+    }
+  ],
+  "refresh": "10s",
+  "schemaVersion": 36,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "Centralaized - aviv",
+  "uid": "2asfNXAVk",
+  "version": 26,
+  "weekStart": ""
+}
